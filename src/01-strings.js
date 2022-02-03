@@ -4,7 +4,10 @@
  * @param {string[]} words - An array of strings.
  * @returns {string} - A single string with all words combined together.
  */
-function combineAllWords(words) {}
+function combineAllWords(words) {
+  let newWord = words.join("")
+  return newWord
+}
 
 /**
  * Return an array of the words but each word is repeated.
@@ -12,7 +15,14 @@ function combineAllWords(words) {}
  * @param {string[]} words - An array of strings.
  * @returns {string[]} - An array of whole numbers.
  */
-function repeatAllWords(words) {}
+function repeatAllWords(words) {
+  let newArr = []
+  for (const word of words){
+    let newWord = `${word}${word}`
+    newArr.push(newWord)
+  }
+  return newArr
+}
 
 /**
  * Return an array of only those words that have four characters or less.
@@ -20,7 +30,15 @@ function repeatAllWords(words) {}
  * @param {string[]} words - An array of strings.
  * @returns {string[]} - An array of only small words.
  */
-function getSmallWords(words) {}
+function getSmallWords(words) {
+  let newArr = []
+  for (const word of words){
+    if (word.length <= 4){
+      newArr.push(word)
+    }
+  }
+  return newArr
+}
 
 /**
  * Return the first word that includes the character. If no word is found, return `null`.
@@ -29,7 +47,14 @@ function getSmallWords(words) {}
  * @param {string} character - A single character.
  * @returns {string|null} - The found word or `null`.
  */
-function findWordWithCharacter(words, character) {}
+function findWordWithCharacter(words, character) {
+  for (const word of words){
+    if (word.includes(character)){
+      return word
+    }
+  }
+  return null
+}
 
 /**
  * Return `true` if all words are in all caps. Otherwise, return `false`.
@@ -37,7 +62,14 @@ function findWordWithCharacter(words, character) {}
  * @param {string[]} words - An array of strings.
  * @returns {boolean} - Whether or not all words are in all caps.
  */
-function allWordsAreAllCaps(words) {}
+function allWordsAreAllCaps(words) {
+  for (let word of words){
+    if (word !== word.toUpperCase()){
+      return false
+    }
+  }
+  return true
+}
 
 /**
  * Return the first longest word.
@@ -45,7 +77,15 @@ function allWordsAreAllCaps(words) {}
  * @param {string[]} words - An array of strings.
  * @returns {string} - The first word that is the longest.
  */
-function getLongestWord(words) {}
+function getLongestWord(words) {
+  let first = words[0]
+  for (let word of words){
+    if (word.length > first.length){
+    first = word
+    }
+  }
+  return first
+}
 
 module.exports = {
   combineAllWords,
